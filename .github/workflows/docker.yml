@@ -17,6 +17,10 @@ jobs:
       - name: install dependencies 
         run: pip install -r requirements.txt
       - name: testing
+        env:
+          REDIS_HOST: ${{secrets.REDIS_HOST}}
+          REDIS_PORT: ${{secrets.REDIS_PORT}}
+          SECRET_KEY: ${{secrets.SECRET_KEY}}
         run: pytest
   docker:
     runs-on: ubuntu-latest
