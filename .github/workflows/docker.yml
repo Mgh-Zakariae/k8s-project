@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Docker meta
         id: meta
-        users: docker/metadata-action@v5
+        uses: docker/metadata-action@v5
         with:
           images: mghzakariae/k8s_proj
           tags: |
