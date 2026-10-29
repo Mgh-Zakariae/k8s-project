@@ -2,14 +2,18 @@ import os
 import time
 import redis
 from flask import Flask, request, redirect, url_for, render_template_string, session
+from dotenv import load_dotenv
 
 app = Flask(__name__)
+
+
+load_dotenv()
 
 app.secret_key = os.getenv("SECRET_KEY")
 
 REDIS_HOST = os.getenv("REDIS_HOST")
 REDIS_PORT = os.getenv("REDIS_PORT")
-# REDIS_PASSWORD = os.getenv("REDIS_PASSWORD")
+DEBUG = os.getenv("DEBUG").lower() == "true"
 
 cache = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, decode_responses=True)
 
@@ -70,4 +74,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=DEBUG)

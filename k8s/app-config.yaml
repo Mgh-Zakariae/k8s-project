@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  REDIS_HOST: "db-service"
+  REDIS_PORT: "6379"
+  DEBUG: false
