@@ -21,6 +21,7 @@ jobs:
           REDIS_HOST: ${{secrets.REDIS_HOST}}
           REDIS_PORT: ${{secrets.REDIS_PORT}}
           SECRET_KEY: ${{secrets.SECRET_KEY}}
+          DEBUG: false
         run: pytest
   docker:
     runs-on: ubuntu-latest

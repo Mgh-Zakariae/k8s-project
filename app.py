@@ -6,11 +6,9 @@ from dotenv import load_dotenv
 
 app = Flask(__name__)
 
-
 load_dotenv()
 
 app.secret_key = os.getenv("SECRET_KEY")
-
 REDIS_HOST = os.getenv("REDIS_HOST")
 REDIS_PORT = os.getenv("REDIS_PORT")
 DEBUG = os.getenv("DEBUG").lower() == "true"
