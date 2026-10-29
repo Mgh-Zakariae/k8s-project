@@ -5,4 +5,4 @@ metadata:
 data:
   REDIS_HOST: "db-service"
   REDIS_PORT: "6379"
-  DEBUG: false
+  DEBUG: 'false'
