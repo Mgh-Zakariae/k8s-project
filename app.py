@@ -38,7 +38,8 @@ def hello():
     if request.method == 'GET':
         tasks = cache.lrange(f"{user}:tasks", 0, -1)
         template = """
-                <h1>Hello</h1>\n
+                <h1>Hello {{user}}</h1>\n
+                <button ><a href='/logout'>Logout</a></button>
                 <p>Let's store our tasks</p>\n
                 <form method='POST'>
                     <input name='name' type='text'>
@@ -58,7 +59,7 @@ def hello():
                 </dvi>
                 """
         
-        return render_template_string(template, tasks=tasks)
+        return render_template_string(template, tasks=tasks, user=user)
     elif request.method == 'POST':
         task_name = request.form['name']
         cache.rpush(f"{user}:tasks", task_name)
