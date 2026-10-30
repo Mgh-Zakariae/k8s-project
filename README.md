@@ -211,7 +211,6 @@ Main takeaways:
 **Improvements I would make**
 
 - Run the app with `gunicorn` instead of the Flask development server.
-- Align the Python version between the Dockerfile and CI, and fix `EXPOSE` to match port 5000.
 - Split test dependencies into `requirements-dev.txt` so `pytest` is not in the production image.
 - Pin Redis to a fixed version and use `strategy: Recreate` for the Redis Deployment (the PVC is `ReadWriteOnce`).
 - Add a Redis password.
@@ -233,5 +232,5 @@ Main takeaways:
 ```
 
 ---
-
+ 
 **Author:** Zakaria Mghili
