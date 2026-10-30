@@ -1,4 +1,4 @@
-FROM python:3.11-alpine
+FROM python:3.13-alpine
 
 WORKDIR /app
 
@@ -7,6 +7,6 @@ RUN pip install -r requirements.txt
 
 COPY app.py .
 
-EXPOSE 5005
+EXPOSE 5000
 
 CMD ["python", "app.py"]

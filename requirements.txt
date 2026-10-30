@@ -1,4 +1,4 @@
 redis
 flask
 pytest
-dotenv
+python-dotenv

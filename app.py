@@ -47,7 +47,7 @@ def hello():
                 </form>
                 <h1>Your Tasks</h1>
                 <div>
-                    {% if not tasks[0] %}
+                    {% if not tasks %}
                         <h4 style='margin-left:35px;'>add something</h4>
                     {% else %}
                         <ul>
@@ -56,7 +56,7 @@ def hello():
                             {% endfor %}
                         </ul>
                     {% endif %}
-                </dvi>
+                </div>
                 """
         
         return render_template_string(template, tasks=tasks, user=user)
