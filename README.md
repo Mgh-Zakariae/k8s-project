@@ -1,6 +1,6 @@
 # Task Manager on Kubernetes
 
-A small two-tier web app (Flask + Redis) built to practice the full DevOps loop: **Git → CI/CD (GitHub Actions) → Docker Hub → Kubernetes (Minikube)**.
+A small two-tier web app (Flask + Redis) built to practice the full DevOps loop: **Git → CI (GitHub Actions) → Docker Hub → manual deploy to Kubernetes (Minikube)**.
 
 The app itself is simple on purpose. The goal of the project is the pipeline and the Kubernetes deployment around it.
 
@@ -46,7 +46,7 @@ flowchart LR
 
 ---
 
-## 3. CI/CD pipeline
+## 3. CI pipeline
 
 Defined in `.github/workflows/docker.yml`.
 
@@ -227,7 +227,7 @@ Main takeaways:
 ├── test_app.py                 # Unit tests (mocked Redis)
 ├── Dockerfile
 ├── requirements.txt
-├── .github/workflows/docker.yml  # CI/CD pipeline
+├── .github/workflows/docker.yml  # CI pipeline
 └── k8s/                        # Kubernetes manifests
 ```
 
