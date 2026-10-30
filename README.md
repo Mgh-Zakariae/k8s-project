@@ -5,7 +5,7 @@ A small two-tier web app (Flask + Redis) built to practice the full DevOps loop:
 The app itself is simple on purpose. The goal of the project is the pipeline and the Kubernetes deployment around it.
 
 - **Docker image:** `mghzakariae/k8s_proj`
-- **Current version:** `v1.0.1`
+- **Current version:** `v1.0.2`
 - **Stack:** Python 3.13, Flask, Redis, Docker, GitHub Actions, Kubernetes (Minikube)
 
 ---
