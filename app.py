@@ -11,9 +11,15 @@ load_dotenv()
 app.secret_key = os.getenv("SECRET_KEY")
 REDIS_HOST = os.getenv("REDIS_HOST")
 REDIS_PORT = os.getenv("REDIS_PORT")
+REDIS_TLS = os.getenv("REDIS_TLS", "false").lower() == "true"
 DEBUG = os.getenv("DEBUG").lower() == "true"
 
-cache = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, decode_responses=True)
+cache = redis.Redis(
+    host=REDIS_HOST,
+    port=int(REDIS_PORT),
+    ssl=REDIS_TLS,
+    decode_responses=True
+)
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
