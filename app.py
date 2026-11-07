@@ -16,7 +16,7 @@ DEBUG = os.getenv("DEBUG").lower() == "true"
 
 cache = redis.Redis(
     host=REDIS_HOST,
-    port=int(REDIS_PORT),
+    port=REDIS_PORT,
     ssl=REDIS_TLS,
     decode_responses=True
 )
