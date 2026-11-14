@@ -79,9 +79,13 @@ jobs:
         working-directory: terraform
     steps: 
       - uses: actions/checkout@v4
+      - name: Debug GitHub context
+        run: |
+          echo "repository=${{ github.repository }}"
+          echo "ref=${{ github.ref }}"
       - uses: aws-actions/configure-aws-credentials@v6
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          role-to-assume: arn:aws:iam::793886182855:role/github-terraform-deploy
           aws-region: eu-north-1
       - uses: hashicorp/setup-terraform@v4
         with: 
