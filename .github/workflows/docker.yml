@@ -54,7 +54,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
   terraform-check:
     runs-on: ubuntu-latest
-    default:
+    defaults:
       run:
         working-directory: terraform
     steps:
@@ -74,7 +74,7 @@ jobs:
       contents: read
       # id-token: write → authenticate to AWS.
       #contents: read → access Terraform files from the repository.
-    default:
+    defaults:
       run:
         working-directory: terraform
     steps: 
@@ -95,7 +95,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    default:
+    defaults:
       run:
         working-directory: terraform
     steps:
