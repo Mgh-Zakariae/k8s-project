@@ -1,0 +1,26 @@
+name: destroy
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Type destroy to confirm"
+        required: true
+
+jobs:
+  destroy:
+    if: inputs.confirm == 'destroy'
+    runs-on: ubuntu-latest
+    environment: production
+    permissions: { id-token: write, contents: read }
+    env:
+      TF_VAR_image_tag: unused
+    defaults: { run: { working-directory: terraform } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: eu-north-1
+      - uses: hashicorp/setup-terraform@v3
+      - run: terraform init -input=false
+      - run: terraform destroy -input=false -auto-approve

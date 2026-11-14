@@ -221,3 +221,10 @@ __marimo__/
 
 
 TODO.txt
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
